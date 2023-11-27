@@ -118,9 +118,10 @@ function Game() {
         for (let i = 0; i < 100; i++) {
           const rowOfThree = [i, i + 1, i +2];
           const decidedColor= currentclrArrangement[i];
+          const isBlank = currentclrArrangement[i] === blank;
           if (notValid.includes(i)) continue;
           if (
-            rowOfThree.every((index) => currentclrArrangement[index] === decidedColor))
+            rowOfThree.every((index) => currentclrArrangement[index] === decidedColor) && !isBlank)
            {
             dragFlag && dispatch(updateScore(3));
             rowOfThree.forEach((index) => (currentclrArrangement[index] = blank));
@@ -150,13 +151,13 @@ function Game() {
       };
       const dragStart =(e)=>{
         setSquareBeingDragged(e.target);
-        console.log('drag start');
+        // console.log('drag start');
       }
 
 
       const dragDrop =(e)=>{
         setSquareBeingReplaced(e.target);
-        console.log('drag drop');
+        // console.log('drag drop');
       }
 
 
@@ -168,14 +169,10 @@ function Game() {
     const squareBeingReplacedId = parseInt(
       squareBeingReplaced.getAttribute("data-id")
     );
-    currentclrArrangement[squareBeingReplacedId]=squareBeingDragged.getAttribute("src");
-    currentclrArrangement[squareBeingDraggedId]=   squareBeingReplaced.getAttribute("src");
-    setCurrentclrArrangement([...currentclrArrangement]);
-    setSquareBeingDragged(null);
-    setSquareBeingReplaced(null);
     
-    console.log('squareBeingDraggedId', squareBeingDraggedId);
-    console.log('squareBeingReplacedId', squareBeingReplacedId);
+    
+    // console.log('squareBeingDraggedId', squareBeingDraggedId);
+    // console.log('squareBeingReplacedId', squareBeingReplacedId);
     let dummyArr = [...currentclrArrangement];
     let swap = dummyArr[squareBeingReplacedId];
     dummyArr[squareBeingReplacedId] = dummyArr[squareBeingDraggedId];
@@ -212,6 +209,7 @@ function Game() {
       setCurrentclrArrangement([...currentclrArrangement]);
           setSquareBeingDragged(null)
           setSquareBeingReplaced(null)
+          dispatch(decreaseMoves());
         }
         else{
           setDragFlag(false);
