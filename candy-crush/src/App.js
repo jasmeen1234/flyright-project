@@ -11,13 +11,14 @@ function App() {
   return (
     <div className="App">
      <LevelHistory/>
+     <Mission/>
      <div className="cardBoard"> 
      <Game/>
-     {/* <Game1/> */}
-     <ScoreCard/>
-     <GameLevel/>
+      {/* <Game1/>  */}
+      <ScoreCard/>
+     <GameLevel/> 
      </div>
-<Mission/>
+  
     </div>
   );
 }
