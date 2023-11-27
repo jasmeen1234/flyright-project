@@ -1,4 +1,3 @@
-import React from 'react'
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -14,38 +13,39 @@ import {
   updateGoal,
   updateMoves,
 } from "../redux/actions/actionCreator";
+
 const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    rowGap: "20",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "space-between",
+  rowGap: "20",
+};
+
+export default function GameWonModal({ open, setOpen }) {
+  const dispatch = useDispatch();
+  const handleExit = () => {
+    setOpen(false);
+    dispatch(resetLevel());
   };
-function GameWOn({open, setOpen}) {
-    const dispatch = useDispatch();
-    const handleExit = () => {
-      setOpen(false);
-      dispatch(resetLevel());
-    };
-    const handleNextLevel = () => {
-      setOpen(false);
-      dispatch(updateGoal(5));
-      dispatch(levelSuccess());
-      dispatch(nextLevel());
-      dispatch(updateMoves());
-    };
+  const handleNextLevel = () => {
+    setOpen(false);
+    dispatch(updateGoal(5));
+    dispatch(levelSuccess());
+    dispatch(nextLevel());
+    dispatch(updateMoves());
+  };
   return (
-    
-       <div className="wonModal">
+    <div className="wonModal">
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -99,7 +99,5 @@ function GameWOn({open, setOpen}) {
         </Fade>
       </Modal>
     </div>
-  )
+  );
 }
-
-export default GameWOn

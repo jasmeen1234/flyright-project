@@ -1,17 +1,19 @@
 
 import './App.css';
-import Game from './components/Game';
+
 import LevelHistory from './components/LevelHistory';
 import GameLevel from './components/GameLevel';
 import ScoreCard from './components/ScoreCard';
 import Mission from './components/Mission';
+import Game1 from './components/Game1';
 
 function App() {
   return (
     <div className="App">
      <LevelHistory/>
      <div className="cardBoard"> 
-     <Game/>
+     {/* <Game/> */}
+     <Game1/>
      <ScoreCard/>
      <GameLevel/>
      </div>

@@ -6,7 +6,7 @@ import {
   showValidCandies,
   showValidMoves,
 } from "../redux/actions/actionCreator";
-import GameWon from "./GameWon";
+import GameWonModal from "./GameWonModal";
 import Burst from "./Burst";
 
 function Mission() {
@@ -34,12 +34,12 @@ function Mission() {
     <div className="mission">
       <h4>{`Collect ${candyGoal} blue candies`}</h4>
       <div className="targetCount">
-        <img src={bluecandy} alt="bluecandy" />
+        <img src={bluecandy} alt="blueCandy" />
         <p>{`remaining : ${candiesRemaining}`}</p>
       </div>
       <div className="movesLeft">Moves Left : {maxMoves}</div>
       <Burst cleared={openModal} />
-      <GameWon open={openModal} setOpen={setOpenModal} />
+      <GameWonModal open={openModal} setOpen={setOpenModal} />
     </div>
   );
 }
