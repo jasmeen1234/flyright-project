@@ -1,5 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.game {
+  width: 560px;
+  height: 560px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: brown;
+  padding: 5px;
+  border-radius: 5px;
+}
+.game img{
+  width: 70px;
+  height: 70px;
 }
 
 .App-logo {
