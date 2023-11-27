@@ -11,7 +11,7 @@ const canvasStyles = {
 };
 
 export default function Burst({ cleared }) {
-  const refElement = useRef(null);
+  const refAnimationInstance = useRef(null);
 
   useEffect(() => {
     if (cleared) {
@@ -19,12 +19,12 @@ export default function Burst({ cleared }) {
     }
   }, [cleared]);
   const getInstance = useCallback((instance) => {
-    refElement.current = instance;
+    refAnimationInstance.current = instance;
   }, []);
 
   const makeShot = useCallback((particleRatio, opts) => {
-    refElement.current &&
-    refElement.current({
+    refAnimationInstance.current &&
+      refAnimationInstance.current({
         ...opts,
         origin: { y: 0.7 },
         particleCount: Math.floor(450 * particleRatio),

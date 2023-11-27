@@ -1,7 +1,7 @@
 import React,{useEffect, useState } from 'react';
 import bluecandy from '../Images/bluecandy.jpeg';
 import greencandy from '../Images/greencandy.jpeg';
-import orangeColor from '../Images/greencandy.jpeg';
+import orangeColor from '../Images/orangeColor.jpeg';
 import redcandy from '../Images/redcandy.jpeg';
 import yellowcandy from '../Images/yellowcandy.jpeg';
 import purpleColor from '../Images/purpleColor.png';
@@ -13,9 +13,9 @@ import {
   updateScore,
 } from "../redux/actions/actionCreator";
 
-const width = 9;
+const width = 10;
 const candyColors = [bluecandy, greencandy, orangeColor, purpleColor, redcandy,yellowcandy];
-function Game1() {
+function Game() {
   const [currentCandyArrangement, setCurrentCandyArrangement] = useState([]);
   const [squareBeingDragged, setSquareBeingDragged] = useState(null);
   const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
@@ -291,4 +291,4 @@ function Game1() {
     </div>
   );
 }
-export default Game1;
+export default Game;
